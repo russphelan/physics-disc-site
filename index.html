@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+	<script language="JavaScript">
+	  function calculateSeconds(form){
+	  
+	  var pi = 3.14159;
+	  var r_2 = form.r_2.value;
+	  var r_1 = form.r_1.value;
+	  var roe = form.roe.value;
+	  var omega = form.omega.value
+	  var t = form.t.value;
+	  var tao = form.tao.value;
+	  
+	  var secs = ((omega * t * roe * (Math.pow(pi, 2)) * ((Math.pow(r_2, 4)) - (Math.pow(r_1, 4))))/(60 * tao))
+
+	  alert(secs); 
+
+	  form.seconds.value = secs; 
+	  }
+	  </script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+	<strong>Disk Acceleration Calculator</strong><br><br>
+
+	This calculator will calculate how long it takes to bring a
+	disk up to a certain rpm when a torque is applied. Other
+	parameters include inner radius of the disk, outer radius of
+	the disk, density of the disk, and thickness of the
+	disk. Units are specified. <br><br>
+
+	<em> Requirements </em>
+	<br>
+	r_2 > r_1, r_2 > 0, thickness > 0, angular-speed > 0, torque >
+	0. <br><br>
+
+        <form name="calculatorForm" action="" method="get">
+	  Torque (N*m): <input type="text" name="tao" value=""><br>
+	  Outer Radius R_2 (m): <input type="text" name="r_2" value=""><br>
+	  Inner Radius R_1 (m): <input type="text" name="r_1" value=""><br>
+	  Mass Density (kg/m^3): <input type="text" name="roe" value=""><br>
+	  Angular Speed (rpm): <input type="text" name="omega" value=""><br>
+	  Thickness (m): <input type="text" name="t" value=""><br>
+	  Seconds (s): <input type="number" name="seconds" value="">
+	  <input type="button" value="Calculate" onClick="calculateSeconds(this.form)"><br>
+	</form> 
+
+	<br>
+	<br>
+	<img src="img/disk-radius-photos.jpg" width="300" height="300">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>
